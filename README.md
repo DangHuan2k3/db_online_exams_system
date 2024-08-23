@@ -59,3 +59,10 @@ This system is designed for high school teachers to create, organize, and manage
 ## References
 
 Describe any additional references or resources here.
+
+## How to get this db on [link](https://drawdb.vercel.app/editor)
+
+1. Click link https://drawdb.vercel.app/editor
+2. Download *.ddb
+3. Choose option `File > Import Diagram` or `Ctrl + I`
+4. Drag and drop *.ddb and click `Import` button
