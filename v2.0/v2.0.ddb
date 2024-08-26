@@ -1,7 +1,7 @@
 {
   "author": "Unnamed",
   "title": "v2.0",
-  "date": "2024-08-26T01:35:43.748Z",
+  "date": "2024-08-26T02:14:46.830Z",
   "tables": [
     {
       "id": 0,
@@ -267,20 +267,6 @@
           "id": 0
         },
         {
-          "name": "online_class_id",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "",
-          "id": 1,
-          "size": "",
-          "values": []
-        },
-        {
           "name": "name",
           "type": "VARCHAR",
           "default": "",
@@ -290,7 +276,7 @@
           "notNull": true,
           "increment": false,
           "comment": "",
-          "id": 2,
+          "id": 1,
           "size": 255
         },
         {
@@ -303,7 +289,7 @@
           "notNull": false,
           "increment": false,
           "comment": "Belong to minutes",
-          "id": 3,
+          "id": 2,
           "size": "",
           "values": []
         },
@@ -317,20 +303,20 @@
           "notNull": true,
           "increment": false,
           "comment": "",
-          "id": 4,
+          "id": 3,
           "size": 65535
         },
         {
-          "name": "totalGrade",
+          "name": "correct_answer_needed",
           "type": "INTEGER",
           "default": "10",
           "check": "",
           "primary": false,
           "unique": false,
-          "notNull": true,
+          "notNull": false,
           "increment": false,
           "comment": "",
-          "id": 5,
+          "id": 4,
           "size": "",
           "values": []
         },
@@ -344,7 +330,7 @@
           "notNull": false,
           "increment": false,
           "comment": "",
-          "id": 6,
+          "id": 5,
           "size": "",
           "values": []
         }
@@ -373,20 +359,6 @@
           "id": 0
         },
         {
-          "name": "exam_id",
-          "type": "INTEGER",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "",
-          "id": 1,
-          "size": "",
-          "values": []
-        },
-        {
           "name": "content",
           "type": "TEXT",
           "default": "",
@@ -396,7 +368,7 @@
           "notNull": true,
           "increment": false,
           "comment": "",
-          "id": 2,
+          "id": 1,
           "size": 65535
         },
         {
@@ -409,7 +381,7 @@
           "notNull": false,
           "increment": false,
           "comment": "There are some types of questions. ",
-          "id": 3,
+          "id": 2,
           "size": "",
           "values": []
         },
@@ -423,7 +395,7 @@
           "notNull": true,
           "increment": false,
           "comment": "",
-          "id": 4,
+          "id": 3,
           "size": 255
         },
         {
@@ -436,7 +408,7 @@
           "notNull": false,
           "increment": false,
           "comment": "",
-          "id": 5,
+          "id": 4,
           "size": 255
         },
         {
@@ -449,7 +421,7 @@
           "notNull": false,
           "increment": false,
           "comment": "",
-          "id": 6,
+          "id": 5,
           "size": 255
         },
         {
@@ -462,7 +434,7 @@
           "notNull": false,
           "increment": false,
           "comment": "",
-          "id": 7,
+          "id": 6,
           "size": 255
         },
         {
@@ -475,7 +447,7 @@
           "notNull": false,
           "increment": false,
           "comment": "",
-          "id": 8,
+          "id": 7,
           "size": "",
           "values": []
         }
@@ -489,7 +461,7 @@
       "id": 6,
       "name": "results",
       "x": -572.3092865345368,
-      "y": 323.37095930126094,
+      "y": 330.21231673372614,
       "fields": [
         {
           "name": "id",
@@ -897,7 +869,7 @@
       "startTableId": 1,
       "startFieldId": 0,
       "endTableId": 5,
-      "endFieldId": 8,
+      "endFieldId": 7,
       "cardinality": "One to one",
       "updateConstraint": "No action",
       "deleteConstraint": "No action",
