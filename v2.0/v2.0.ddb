@@ -1,7 +1,7 @@
 {
   "author": "Unnamed",
   "title": "v2.0",
-  "date": "2024-08-26T09:04:37.865Z",
+  "date": "2024-08-26T09:22:11.734Z",
   "tables": [
     {
       "id": 0,
@@ -413,9 +413,9 @@
           "values": []
         },
         {
-          "name": "option_2",
-          "type": "VARCHAR",
-          "default": "",
+          "name": "num_options",
+          "type": "SMALLINT",
+          "default": "2",
           "check": "",
           "primary": false,
           "unique": false,
@@ -423,33 +423,8 @@
           "increment": false,
           "comment": "",
           "id": 4,
-          "size": 255
-        },
-        {
-          "name": "option_3",
-          "type": "VARCHAR",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": false,
-          "increment": false,
-          "comment": "",
-          "id": 5,
-          "size": 255
-        },
-        {
-          "name": "option_4",
-          "type": "VARCHAR",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": false,
-          "increment": false,
-          "comment": "",
-          "id": 6,
-          "size": 255
+          "size": "",
+          "values": []
         },
         {
           "name": "option_1",
@@ -461,7 +436,49 @@
           "notNull": true,
           "increment": false,
           "comment": "",
+          "id": 5,
+          "size": 255,
+          "values": []
+        },
+        {
+          "name": "option_2",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "id": 6,
+          "size": 255,
+          "values": []
+        },
+        {
+          "name": "option_3",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
           "id": 7,
+          "size": 255,
+          "values": []
+        },
+        {
+          "name": "option_4",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "id": 8,
           "size": 255,
           "values": []
         },
@@ -475,7 +492,7 @@
           "notNull": true,
           "increment": false,
           "comment": "",
-          "id": 8,
+          "id": 9,
           "size": "",
           "values": []
         }
