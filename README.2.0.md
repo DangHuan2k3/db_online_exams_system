@@ -6,7 +6,7 @@ The system is designed to assist high school teachers in organizing exams and as
 
 ### Version
 
-**v3.0**
+**v2.0**
 
 ### Author
 
@@ -43,9 +43,9 @@ This system is designed for high school teachers to create, organize, and manage
 
 ## Database Design
 
-### Entity-Relationship Diagram (ERD) (v3.0)
+### Entity-Relationship Diagram (ERD) (v2.0)
 
-![ERD Diagram](v3.0/ERD_3.0.png)  
+![ERD Diagram](v2.0/ERD_2.0.png)  
 
 ### Database Tables Description
 
