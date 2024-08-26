@@ -6,7 +6,7 @@ The system is designed to assist high school teachers in organizing exams and as
 
 ### Version
 
-**v1.0**
+**v2.0**
 
 ### Author
 
@@ -37,19 +37,19 @@ This system is designed for high school teachers to create, organize, and manage
 
 | Actors        | Common Functions                                   | Specific Functions                           |
 |---------------|---------------------------------------------------|----------------------------------------------|
-| Administrators| - Login/Logout<br>- Manage Personal Information    | - Manage Users<br>- Manage Exams<br>- View All Exam Results |
-| Teachers      | - Manage Classes<br>- Manage Exams                 | - View Their Exam Results                    |
+| Administrators| - Login/Logout<br>- Manage Personal Information    | - Manage Users<br>- Manage Exams<br>- View All Exam Results|
+| Teachers      | - Manage Classes<br>- Manage Exams                 | - View Their Exam Results<br>- Save their questions in storage                   |
 | Students      | - Search and View Classes<br>- Search and View Exams | - Take Exam<br>- View Results               |
 
 ## Database Design
 
-### Entity-Relationship Diagram (ERD)
+### Entity-Relationship Diagram (ERD) (v2.0)
 
-![ERD Diagram](ERD_1.0.png)  
+![ERD Diagram](v2.0/ERD_2.0.png)  
 
 ### Database Tables Description
 
-![Description for DB](Description_tables_1.0.png)
+...updating
 
 ## Notes
 
