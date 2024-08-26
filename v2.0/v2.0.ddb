@@ -1,7 +1,7 @@
 {
   "author": "Unnamed",
   "title": "v2.0",
-  "date": "2024-08-26T02:14:46.830Z",
+  "date": "2024-08-26T09:04:37.865Z",
   "tables": [
     {
       "id": 0,
@@ -11,15 +11,17 @@
       "fields": [
         {
           "name": "id",
-          "type": "INTEGER",
+          "type": "SERIAL",
           "default": "",
           "check": "",
           "primary": true,
           "unique": true,
           "notNull": true,
-          "increment": true,
+          "increment": false,
           "comment": "",
-          "id": 0
+          "id": 0,
+          "size": "",
+          "values": []
         },
         {
           "name": "email",
@@ -54,7 +56,7 @@
           "check": "",
           "primary": false,
           "unique": false,
-          "notNull": false,
+          "notNull": true,
           "increment": false,
           "comment": "",
           "id": 3,
@@ -116,19 +118,21 @@
       "fields": [
         {
           "name": "id",
-          "type": "INTEGER",
+          "type": "SERIAL",
           "default": "",
           "check": "",
           "primary": true,
           "unique": true,
           "notNull": true,
-          "increment": true,
+          "increment": false,
           "comment": "",
-          "id": 0
+          "id": 0,
+          "size": "",
+          "values": []
         },
         {
           "name": "user_id",
-          "type": "INTEGER",
+          "type": "SERIAL",
           "default": "",
           "check": "",
           "primary": false,
@@ -154,19 +158,21 @@
       "fields": [
         {
           "name": "id",
-          "type": "INTEGER",
+          "type": "SERIAL",
           "default": "",
           "check": "",
           "primary": true,
           "unique": true,
           "notNull": true,
-          "increment": true,
+          "increment": false,
           "comment": "",
-          "id": 0
+          "id": 0,
+          "size": "",
+          "values": []
         },
         {
           "name": "user_id",
-          "type": "INTEGER",
+          "type": "SERIAL",
           "default": "",
           "check": "",
           "primary": false,
@@ -205,22 +211,24 @@
       "fields": [
         {
           "name": "id",
-          "type": "INTEGER",
+          "type": "SERIAL",
           "default": "",
           "check": "",
           "primary": true,
           "unique": true,
           "notNull": true,
-          "increment": true,
+          "increment": false,
           "comment": "",
-          "id": 0
+          "id": 0,
+          "size": "",
+          "values": []
         },
         {
           "name": "teacher_id",
-          "type": "INTEGER",
+          "type": "SERIAL",
           "default": "",
           "check": "",
-          "primary": true,
+          "primary": false,
           "unique": false,
           "notNull": true,
           "increment": false,
@@ -256,15 +264,17 @@
       "fields": [
         {
           "name": "id",
-          "type": "INTEGER",
+          "type": "SERIAL",
           "default": "",
           "check": "",
           "primary": true,
           "unique": true,
           "notNull": true,
-          "increment": true,
+          "increment": false,
           "comment": "",
-          "id": 0
+          "id": 0,
+          "size": "",
+          "values": []
         },
         {
           "name": "name",
@@ -348,15 +358,45 @@
       "fields": [
         {
           "name": "id",
-          "type": "INTEGER",
+          "type": "SERIAL",
           "default": "",
           "check": "",
           "primary": true,
           "unique": true,
           "notNull": true,
-          "increment": true,
+          "increment": false,
           "comment": "",
-          "id": 0
+          "id": 0,
+          "size": "",
+          "values": []
+        },
+        {
+          "name": "teacher_id",
+          "type": "SERIAL",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "id": 1,
+          "size": "",
+          "values": []
+        },
+        {
+          "name": "type",
+          "type": "SMALLINT",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "There are some types of questions. ",
+          "id": 2,
+          "size": "",
+          "values": []
         },
         {
           "name": "content",
@@ -368,35 +408,9 @@
           "notNull": true,
           "increment": false,
           "comment": "",
-          "id": 1,
-          "size": 65535
-        },
-        {
-          "name": "type",
-          "type": "SMALLINT",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": false,
-          "increment": false,
-          "comment": "There are some types of questions. ",
-          "id": 2,
-          "size": "",
-          "values": []
-        },
-        {
-          "name": "option_1",
-          "type": "VARCHAR",
-          "default": "",
-          "check": "",
-          "primary": false,
-          "unique": false,
-          "notNull": true,
-          "increment": false,
-          "comment": "",
           "id": 3,
-          "size": 255
+          "size": 65535,
+          "values": []
         },
         {
           "name": "option_2",
@@ -438,16 +452,30 @@
           "size": 255
         },
         {
-          "name": "teacher_id",
-          "type": "INTEGER",
+          "name": "option_1",
+          "type": "VARCHAR",
           "default": "",
           "check": "",
           "primary": false,
           "unique": false,
-          "notNull": false,
+          "notNull": true,
           "increment": false,
           "comment": "",
           "id": 7,
+          "size": 255,
+          "values": []
+        },
+        {
+          "name": "correct_option",
+          "type": "SMALLINT",
+          "default": "1",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "id": 8,
           "size": "",
           "values": []
         }
@@ -465,22 +493,24 @@
       "fields": [
         {
           "name": "id",
-          "type": "INTEGER",
+          "type": "SERIAL",
           "default": "",
           "check": "",
           "primary": true,
           "unique": true,
           "notNull": true,
-          "increment": true,
+          "increment": false,
           "comment": "",
-          "id": 0
+          "id": 0,
+          "size": "",
+          "values": []
         },
         {
           "name": "student_id",
-          "type": "INTEGER",
+          "type": "SERIAL",
           "default": "",
           "check": "",
-          "primary": true,
+          "primary": false,
           "unique": false,
           "notNull": true,
           "increment": false,
@@ -491,7 +521,7 @@
         },
         {
           "name": "exam_id",
-          "type": "INTEGER",
+          "type": "SERIAL",
           "default": "",
           "check": "",
           "primary": false,
@@ -572,15 +602,17 @@
       "fields": [
         {
           "name": "id",
-          "type": "INTEGER",
+          "type": "SERIAL",
           "default": "",
           "check": "",
           "primary": true,
           "unique": true,
           "notNull": true,
-          "increment": true,
+          "increment": false,
           "comment": "",
-          "id": 0
+          "id": 0,
+          "size": "",
+          "values": []
         },
         {
           "name": "question_id",
@@ -612,7 +644,7 @@
         },
         {
           "name": "result_id",
-          "type": "INTEGER",
+          "type": "SERIAL",
           "default": "",
           "check": "",
           "primary": false,
@@ -652,19 +684,21 @@
       "fields": [
         {
           "name": "student_id",
-          "type": "INTEGER",
+          "type": "SERIAL",
           "default": "",
           "check": "",
           "primary": true,
-          "unique": true,
+          "unique": false,
           "notNull": true,
-          "increment": true,
+          "increment": false,
           "comment": "",
-          "id": 0
+          "id": 0,
+          "size": "",
+          "values": []
         },
         {
           "name": "online_class_id",
-          "type": "INTEGER",
+          "type": "SERIAL",
           "default": "",
           "check": "",
           "primary": true,
@@ -690,19 +724,21 @@
       "fields": [
         {
           "name": "question_id",
-          "type": "INTEGER",
+          "type": "SERIAL",
           "default": "",
           "check": "",
           "primary": true,
           "unique": false,
           "notNull": true,
-          "increment": true,
+          "increment": false,
           "comment": "",
-          "id": 0
+          "id": 0,
+          "size": "",
+          "values": []
         },
         {
           "name": "exam_id",
-          "type": "INTEGER",
+          "type": "SERIAL",
           "default": "",
           "check": "",
           "primary": true,
@@ -728,7 +764,7 @@
       "fields": [
         {
           "name": "online_class_id",
-          "type": "INTEGER",
+          "type": "SERIAL",
           "default": "",
           "check": "",
           "primary": true,
@@ -736,11 +772,13 @@
           "notNull": true,
           "increment": false,
           "comment": "",
-          "id": 0
+          "id": 0,
+          "size": "",
+          "values": []
         },
         {
           "name": "exam_id",
-          "type": "INTEGER",
+          "type": "SERIAL",
           "default": "",
           "check": "",
           "primary": true,
@@ -759,7 +797,7 @@
           "check": "",
           "primary": false,
           "unique": false,
-          "notNull": false,
+          "notNull": true,
           "increment": false,
           "comment": "",
           "id": 2,
@@ -773,7 +811,7 @@
           "check": "",
           "primary": false,
           "unique": false,
-          "notNull": false,
+          "notNull": true,
           "increment": false,
           "comment": "",
           "id": 3,
@@ -866,17 +904,6 @@
       "id": 6
     },
     {
-      "startTableId": 1,
-      "startFieldId": 0,
-      "endTableId": 5,
-      "endFieldId": 7,
-      "cardinality": "One to one",
-      "updateConstraint": "No action",
-      "deleteConstraint": "No action",
-      "name": "teachers_id_fk",
-      "id": 7
-    },
-    {
       "startTableId": 9,
       "startFieldId": 0,
       "endTableId": 5,
@@ -885,7 +912,7 @@
       "updateConstraint": "No action",
       "deleteConstraint": "No action",
       "name": "exams_questions_question_id_fk",
-      "id": 8
+      "id": 7
     },
     {
       "startTableId": 9,
@@ -896,7 +923,7 @@
       "updateConstraint": "No action",
       "deleteConstraint": "No action",
       "name": "exams_questions_exam_id_fk",
-      "id": 9
+      "id": 8
     },
     {
       "startTableId": 10,
@@ -907,7 +934,7 @@
       "updateConstraint": "No action",
       "deleteConstraint": "No action",
       "name": "exams_online_classes_online_classes_id_fk",
-      "id": 10
+      "id": 9
     },
     {
       "startTableId": 10,
@@ -918,7 +945,7 @@
       "updateConstraint": "No action",
       "deleteConstraint": "No action",
       "name": "exams_online_classes_exam_id_fk",
-      "id": 11
+      "id": 10
     },
     {
       "startTableId": 7,
@@ -929,7 +956,7 @@
       "updateConstraint": "No action",
       "deleteConstraint": "No action",
       "name": "history_answers_result_id_fk",
-      "id": 12
+      "id": 11
     },
     {
       "startTableId": 7,
@@ -940,6 +967,17 @@
       "updateConstraint": "No action",
       "deleteConstraint": "No action",
       "name": "history_answers_question_id_fk",
+      "id": 12
+    },
+    {
+      "startTableId": 5,
+      "startFieldId": 1,
+      "endTableId": 1,
+      "endFieldId": 0,
+      "cardinality": "Many to one",
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "questions_teacher_id_fk",
       "id": 13
     }
   ],
