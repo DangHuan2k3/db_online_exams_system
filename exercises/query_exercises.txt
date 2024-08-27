@@ -1,0 +1,29 @@
+1. Retrieve a list of all students who have taken at least one exam. For each student, display their full name, email, and the total number of exams taken.
+
+2. Find the top 5 highest-scoring students in each exam. Display the student's full name, exam name, and their score. Sort the results by exam name and score in descending order.
+
+3. List all exams for a given class, including the exam name, teacher's full name, and the scheduled start and end date for that exam. Only show exams that are public.
+
+4. Query the average score for each exam. Display the exam name, the teacher's full name, and the average score of students who participated in the exam.
+
+5. Retrieve a list of students who have taken exams but have not passed (e.g., with a score below a passing threshold). Display the student's full name, the exam name, and their score.
+
+6. Find the top 3 most popular classes based on the number of students enrolled. Display the class name and the total number of students.
+
+7. Retrieve a list of exams along with their associated classes and the total number of students who took the exam. Only display exams that have more than 20 participants.
+
+8. List all students who have taken an exam multiple times but achieved different scores. Display the student's full name, the exam name, and their scores for each attempt.
+
+9. Retrieve a list of all exams created by a specific teacher. Display the exam name, the number of questions in the exam, and the total number of students who have taken the exam.
+
+10. Find all students who have completed an exam but did not answer any questions correctly. Display the student's full name, exam name, and the total number of questions they got wrong.
+
+11. List all questions for a given exam, including the question content, the number of students who answered the question correctly, and the total number of students who attempted the question.
+
+12. Retrieve a list of all classes that have exams scheduled within the next 30 days. For each class, display the class name, the exam name, the scheduled date, and the teacher's full name.
+
+13. Find all exams that have been available for more than 3 months but have not yet been taken by any students. Display the exam name, the class name, and the teacher's full name.
+
+14. List all students who have attempted more than 50% of the questions on any exam but failed to pass the exam (below the passing threshold). Display their full name, exam name, and their score.
+
+15. Retrieve a list of questions that are frequently answered incorrectly by students. Display the question content, the total number of incorrect answers, and the total number of attempts. Only include questions with a failure rate above 60%.
