@@ -5,6 +5,7 @@
     JOIN results ON results.student_id = students.id
   GROUP BY users.full_name, users.email
   HAVING COUNT(results.id) > 1
+
 -- 2. Find the top 5 highest-scoring students in an exam (9851). Display the student's full name, exam name, and their score. Sort the results by exam name and score in descending order.
   SELECT u.full_name, e.name, r.score
   FROM students AS s
@@ -23,6 +24,7 @@
     JOIN teachers AS t ON e.teacher_id = t.id
     JOIN users AS u ON t.user_id = u.id
   WHERE c.id = '92' AND e.is_public = True
+
 -- 4. Query the average score for each exam. Display the exam name, the teacher's full name, and the average score of students who participated in the exam.
   SELECT e.id AS exam_id, e.name AS exam_name, u.full_name AS teacher_name, COALESCE(AVG(r.score), 0) AS average_score
   FROM exams AS e
@@ -31,6 +33,7 @@
     JOIN users AS u ON t.user_id = u.id
   GROUP BY e.id,  e.name, u.full_name
   ORDER BY e.id
+
 -- 5. Retrieve a list of students who have taken exams but have not passed (e.g., with a score below a passing threshold). Display the student's full name, the exam name, and their score.
   SELECT
     u.full_name AS student_name,
@@ -40,8 +43,9 @@
     JOIN users AS u ON s.user_id = u.id
     JOIN results AS r ON s.id = r.student_id
     JOIN exams AS e ON r.exam_id = e.id
-  WHERE r.score < 60 -- Assuming 60 is the passing threshold
+  WHERE r.score < 60 
   ORDER BY u.full_name, e.name;
+
 -- 6. Find the top 3 most popular classes based on the number of students enrolled. Display the class name and the total number of students.
   SELECT 
     c.name,
@@ -63,6 +67,7 @@
     exams.name, classes.name
   HAVING
     COUNT(DISTINCT results.student_id) > 2
+
 -- 8. List all students who have taken an exam multiple times but achieved different scores. Display the student's full name, the exam name, and their scores for each attempt.
   SELECT u.full_name, e.name, r.score
   FROM students as s
@@ -129,8 +134,8 @@
     JOIN users ON users.id = teachers.user_id
   WHERE exams_classes.start_time > date '1, 2, 1908' and exams_classes.start_time < date '1, 2, 1908' + INTERVAL '30 day'
   ORDER BY exams_classes.start_time
--- 13. Find all exams that have been available for more than 3 months but have not yet been taken by any students. Display the exam name, the class name, and the teacher's full name.
 
+-- 13. Find all exams that have been available for more than 3 months but have not yet been taken by any students. Display the exam name, the class name, and the teacher's full name.
   SELECT exams.name, classes.name, users.full_name as teacher_name
   FROM exams
     JOIN exams_classes ON exams_classes.exam_id = exams.id
@@ -142,7 +147,7 @@
     exams.is_public = TRUE 
     AND exams_classes.start_time < date '1, 3, 1908' AND exams_classes.start_time > date '1, 3, 1908' - INTERVAL '30 day'
     AND results.id is NULL -- When left join, with records 
-
+    
 -- 14. List all students who have attempted more than 50% of the questions on any exam but failed to pass the exam (below the passing threshold). Display their full name, exam name, and their score.
   WITH exams_questions_count AS (
     SELECT exams.id as exam_id, exams.name as exam_name, COUNT(distinct exams_questions.question_id) as num_questions
