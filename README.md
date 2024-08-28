@@ -66,3 +66,5 @@ Describe any additional references or resources here.
 2. Download *.ddb
 3. Choose option `File > Import Diagram` or `Ctrl + I`
 4. Drag and drop *.ddb and click `Import` button
+
+## DB exercises [./exercises](./exercises)
