@@ -54,7 +54,15 @@
   LIMIT 5
 
 -- 7. Retrieve a list of exams along with their associated classes and the total number of students who took the exam. Only display exams that have more than 20 participants.
-  
+  SELECT exams.name, classes.name, COUNT(DISTINCT results.student_id) as total_students_took_exams
+  FROM exams
+    JOIN exams_classes ON exams_classes.exam_id = exams.id
+    JOIN classes ON exams_classes.class_id = classes.id
+    JOIN results ON exams.id = results.exam_id
+  GROUP BY 
+    exams.name, classes.name
+  HAVING
+    COUNT(DISTINCT results.student_id) > 2
 -- 8. List all students who have taken an exam multiple times but achieved different scores. Display the student's full name, the exam name, and their scores for each attempt.
   SELECT u.full_name, e.name, r.score
   FROM students as s
@@ -99,7 +107,19 @@
   ORDER BY u.full_name, e.name
 
 -- 11. List all questions for a given exam, including the question content, the number of students who answered the question correctly, and the total number of students who attempted the question.
-
+  SELECT
+      q.content AS question_content,
+      COUNT(CASE WHEN a.is_correct = TRUE THEN 1 END) AS num_students_correct,
+      COUNT(ha.answer_id) AS total_students_attempted
+  FROM exams e
+    JOIN exams_questions eq ON e.id = eq.exam_id
+    JOIN questions q ON eq.question_id = q.id
+    JOIN answers a ON q.id = a.question_id
+    LEFT JOIN history_answers ha ON a.id = ha.answer_id
+  WHERE e.id = 5438 
+  GROUP BY q.id, q.content
+  ORDER BY q.id;
+  
 -- 12. Retrieve a list of all classes that have exams scheduled within the next 30 days. For each class, display the class name, the exam name, the scheduled date, and the teacher's full name.
   SELECT classes.name, exams.name, exams_classes.start_time, users.full_name
   FROM classes
@@ -111,6 +131,60 @@
   ORDER BY exams_classes.start_time
 -- 13. Find all exams that have been available for more than 3 months but have not yet been taken by any students. Display the exam name, the class name, and the teacher's full name.
 
--- 14. List all students who have attempted more than 50% of the questions on any exam but failed to pass the exam (below the passing threshold). Display their full name, exam name, and their score.
+  SELECT exams.name, classes.name, users.full_name as teacher_name
+  FROM exams
+    JOIN exams_classes ON exams_classes.exam_id = exams.id
+    JOIN classes ON exams_classes.class_id = classes.id
+    LEFT JOIN results ON results.exam_id = exams.id
+  JOIN teachers ON exams.teacher_id = teachers.id
+  JOIN users ON teachers.user_id = users.id
+  WHERE
+    exams.is_public = TRUE 
+    AND exams_classes.start_time < date '1, 3, 1908' AND exams_classes.start_time > date '1, 3, 1908' - INTERVAL '30 day'
+    AND results.id is NULL -- When left join, with records 
 
+-- 14. List all students who have attempted more than 50% of the questions on any exam but failed to pass the exam (below the passing threshold). Display their full name, exam name, and their score.
+  WITH exams_questions_count AS (
+    SELECT exams.id as exam_id, exams.name as exam_name, COUNT(distinct exams_questions.question_id) as num_questions
+    FROM exams
+      JOIN exams_questions ON exams_questions.exam_id = exams.id
+    GROUP BY 
+      exams.id, exams.name
+  ),students_count_attempt AS (
+    SELECT 
+      results.student_id as student_id,
+      results.exam_id as exam_id,
+      results.score as result_score,
+      COUNT(DISTINCT history_answers.answer_id) AS attempted_questions
+    FROM students 
+      JOIN results ON results.student_id = students.id
+      JOIN history_answers ON history_answers.result_id = results.id
+      JOIN answers ON history_answers.answer_id = answers.id
+      JOIN questions ON answers.question_id = questions.id
+    GROUP BY
+      results.student_id, results.exam_id, results.score
+  )
+
+  SELECT users.full_name, exams_questions_count.exam_name, students_count_attempt.result_score
+  FROM students_count_attempt
+    JOIN exams_questions_count ON exams_questions_count.exam_id = students_count_attempt.exam_id
+    JOIN students ON students_count_attempt.student_id = students.id
+    JOIN users ON students.user_id = users.id
+  WHERE
+    attempted_questions > 0.5 * num_questions
+    
 -- 15. Retrieve a list of questions that are frequently answered incorrectly by students. Display the question content, the total number of incorrect answers, and the total number of attempts. Only include questions with a failure rate above 60%.
+
+  SELECT 
+    questions.content AS question_content,
+    COUNT(history_answers.answer_id) AS incorrect_answers,
+    COUNT(history_answers.result_id) AS total_attempts,
+    (COUNT(history_answers.answer_id) * 1.0 / COUNT(history_answers.result_id)) * 100 AS failure_rate
+  FROM questions
+    JOIN answers ON questions.id = answers.question_id
+    JOIN history_answers ON answers.id = history_answers.answer_id
+  WHERE answers.is_correct = FALSE
+  GROUP BY 
+    questions.id, questions.content
+  HAVING 
+      (COUNT(history_answers.answer_id) * 1.0 / COUNT(history_answers.result_id)) * 100 > 60;
